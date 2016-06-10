@@ -1,0 +1,23 @@
+{
+    "gpwebApp": {
+        "unidade" : {
+            "home": {
+                "title": "Unidades",
+                "createLabel": "Criar novo Unidade",
+                "createOrEditLabel": "Criar ou editar Unidade",
+                "search": "Pesquisar por Unidade"
+            },
+            "created": "Um novo Unidade é criado com o identificador {{ param }}",
+            "updated": "Um Unidade é atualizado com o identificador {{ param }}",
+            "deleted": "Um Unidade é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Unidade {{ id }}?"
+            },
+            "detail": {
+                "title": "Unidade"
+            },
+            "dsUnidade": "Ds Unidade",
+            "sgUnidade": "Sg Unidade"
+        }
+    }
+}

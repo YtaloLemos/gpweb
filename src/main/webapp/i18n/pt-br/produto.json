@@ -1,0 +1,41 @@
+{
+    "gpwebApp": {
+        "produto" : {
+            "home": {
+                "title": "Produtos",
+                "createLabel": "Criar novo Produto",
+                "createOrEditLabel": "Criar ou editar Produto",
+                "search": "Pesquisar por Produto"
+            },
+            "created": "Um novo Produto é criado com o identificador {{ param }}",
+            "updated": "Um Produto é atualizado com o identificador {{ param }}",
+            "deleted": "Um Produto é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Produto {{ id }}?"
+            },
+            "detail": {
+                "title": "Produto"
+            },
+            "cdProduto": "Cd Produto",
+            "cdBarras": "Cd Barras",
+            "nmProduto": "Nm Produto",
+            "cdNcm": "Cd Ncm",
+            "cdEan": "Cd Ean",
+            "cdAnp": "Cd Anp",
+            "dsAnp": "Ds Anp",
+            "cdContaContabil": "Cd Conta Contabil",
+            "materiaPrima": "Materia Prima",
+            "flBalanca": "Fl Balanca",
+            "flInativo": "Fl Inativo",
+            "flSngpc": "Fl Sngpc",
+            "flMedProlonga": "Fl Med Prolonga",
+            "dsClassTerapeutica": "Ds Class Terapeutica",
+            "vlReal": "Vl Real",
+            "vlEstoque": "Vl Estoque",
+            "dsInformacoes": "Ds Informacoes",
+            "grupo": "Grupo",
+            "marca": "Marca",
+            "unidade": "Unidade"
+        }
+    }
+}

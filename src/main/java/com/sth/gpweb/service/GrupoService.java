@@ -57,4 +57,12 @@ public interface GrupoService {
      *  @return the list of entities
      */
     String findNmGrupoExists(String nmGrupo);
+    
+    /**
+     * Search for the produto corresponding to the query name.
+     * 
+     *  @param description query for the name
+     *  @return the list of entities
+     */
+    Page<Grupo> findByNomeStartingWithOrderByNomeAsc(String descricao, Pageable pageable);
 }

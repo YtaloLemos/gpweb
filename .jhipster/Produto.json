@@ -1,0 +1,146 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "grupo",
+            "otherEntityName": "grupo",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "produto"
+        },
+        {
+            "relationshipName": "marca",
+            "otherEntityName": "marca",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "produto"
+        },
+        {
+            "relationshipName": "unidade",
+            "otherEntityName": "unidade",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "produto"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cdProduto",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "cdBarras",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "25"
+        },
+        {
+            "fieldName": "nmProduto",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "cdNcm",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "8"
+        },
+        {
+            "fieldName": "cdEan",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "cdAnp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "9"
+        },
+        {
+            "fieldName": "dsAnp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        },
+        {
+            "fieldName": "cdContaContabil",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "25"
+        },
+        {
+            "fieldName": "materiaPrima",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "1"
+        },
+        {
+            "fieldName": "flBalanca",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "flInativo",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "flSngpc",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "flMedProlonga",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dsClassTerapeutica",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        },
+        {
+            "fieldName": "vlReal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "vlEstoque",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dsInformacoes",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
+        }
+    ],
+    "changelogDate": "20160609181446",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "produto",
+    "pagination": "pagination"
+}

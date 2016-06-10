@@ -1,0 +1,121 @@
+<div>
+    <h2 translate="gpwebApp.produto.home.title">Produtos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="produto.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  translate="gpwebApp.produto.home.createLabel">
+                        Create new Produto
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'gpwebApp.produto.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cdProduto"><span translate="gpwebApp.produto.cdProduto">Cd Produto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cdBarras"><span translate="gpwebApp.produto.cdBarras">Cd Barras</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nmProduto"><span translate="gpwebApp.produto.nmProduto">Nm Produto</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cdNcm"><span translate="gpwebApp.produto.cdNcm">Cd Ncm</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cdEan"><span translate="gpwebApp.produto.cdEan">Cd Ean</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cdAnp"><span translate="gpwebApp.produto.cdAnp">Cd Anp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dsAnp"><span translate="gpwebApp.produto.dsAnp">Ds Anp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cdContaContabil"><span translate="gpwebApp.produto.cdContaContabil">Cd Conta Contabil</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="materiaPrima"><span translate="gpwebApp.produto.materiaPrima">Materia Prima</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="flBalanca"><span translate="gpwebApp.produto.flBalanca">Fl Balanca</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="flInativo"><span translate="gpwebApp.produto.flInativo">Fl Inativo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="flSngpc"><span translate="gpwebApp.produto.flSngpc">Fl Sngpc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="flMedProlonga"><span translate="gpwebApp.produto.flMedProlonga">Fl Med Prolonga</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dsClassTerapeutica"><span translate="gpwebApp.produto.dsClassTerapeutica">Ds Class Terapeutica</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="vlReal"><span translate="gpwebApp.produto.vlReal">Vl Real</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="vlEstoque"><span translate="gpwebApp.produto.vlEstoque">Vl Estoque</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dsInformacoes"><span translate="gpwebApp.produto.dsInformacoes">Ds Informacoes</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="grupo.id"><span translate="gpwebApp.produto.grupo">Grupo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marca.id"><span translate="gpwebApp.produto.marca">Marca</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unidade.id"><span translate="gpwebApp.produto.unidade">Unidade</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="produto in vm.produtos track by produto.id">
+                    <td><a ui-sref="produto-detail({id:produto.id})">{{produto.id}}</a></td>
+                    <td>{{produto.cdProduto}}</td>
+                    <td>{{produto.cdBarras}}</td>
+                    <td>{{produto.nmProduto}}</td>
+                    <td>{{produto.cdNcm}}</td>
+                    <td>{{produto.cdEan}}</td>
+                    <td>{{produto.cdAnp}}</td>
+                    <td>{{produto.dsAnp}}</td>
+                    <td>{{produto.cdContaContabil}}</td>
+                    <td>{{produto.materiaPrima}}</td>
+                    <td>{{produto.flBalanca}}</td>
+                    <td>{{produto.flInativo}}</td>
+                    <td>{{produto.flSngpc}}</td>
+                    <td>{{produto.flMedProlonga}}</td>
+                    <td>{{produto.dsClassTerapeutica}}</td>
+                    <td>{{produto.vlReal}}</td>
+                    <td>{{produto.vlEstoque}}</td>
+                    <td>{{produto.dsInformacoes}}</td>
+                    <td>
+                        <a ui-sref="grupo-detail({id:produto.grupo.id})">{{produto.grupo.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="marca-detail({id:produto.marca.id})">{{produto.marca.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="unidade-detail({id:produto.unidade.id})">{{produto.unidade.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="produto-detail({id:produto.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="produto.edit({id:produto.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="produto.delete({id:produto.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

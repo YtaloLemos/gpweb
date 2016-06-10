@@ -106,4 +106,16 @@ public class GrupoServiceImpl implements GrupoService{
     	log.debug("Request to search if the nmGrupo: {} already exists", nmGrupo);
         return grupoRepository.findNmGrupoExists(nmGrupo);
     }
+    
+    /**
+     * Search for the nmGrupo
+     *
+     *  @param query the nmGrupo
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public Page<Grupo> findByNomeStartingWithOrderByNomeAsc(String descricao, Pageable pageable){
+    	log.debug("Request to...", descricao);
+        return grupoRepository.findByNmGrupoStartingWithOrderByNmGrupoAsc(descricao, pageable);
+    }
 }

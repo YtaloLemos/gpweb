@@ -16,6 +16,8 @@
                 "promocao": "Promocao",
                 "filial": "Filial",
                 "marca": "Marca",
+                "unidade": "Unidade",
+                "produto": "Produto",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

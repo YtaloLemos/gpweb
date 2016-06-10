@@ -1,0 +1,93 @@
+
+<div>
+    <h2><span translate="gpwebApp.produto.detail.title">Produto</span> {{vm.produto.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="gpwebApp.produto.cdProduto">Cd Produto</span></dt>
+        <dd>
+            <span>{{vm.produto.cdProduto}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.cdBarras">Cd Barras</span></dt>
+        <dd>
+            <span>{{vm.produto.cdBarras}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.nmProduto">Nm Produto</span></dt>
+        <dd>
+            <span>{{vm.produto.nmProduto}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.cdNcm">Cd Ncm</span></dt>
+        <dd>
+            <span>{{vm.produto.cdNcm}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.cdEan">Cd Ean</span></dt>
+        <dd>
+            <span>{{vm.produto.cdEan}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.cdAnp">Cd Anp</span></dt>
+        <dd>
+            <span>{{vm.produto.cdAnp}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.dsAnp">Ds Anp</span></dt>
+        <dd>
+            <span>{{vm.produto.dsAnp}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.cdContaContabil">Cd Conta Contabil</span></dt>
+        <dd>
+            <span>{{vm.produto.cdContaContabil}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.materiaPrima">Materia Prima</span></dt>
+        <dd>
+            <span>{{vm.produto.materiaPrima}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.flBalanca">Fl Balanca</span></dt>
+        <dd>
+            <span>{{vm.produto.flBalanca}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.flInativo">Fl Inativo</span></dt>
+        <dd>
+            <span>{{vm.produto.flInativo}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.flSngpc">Fl Sngpc</span></dt>
+        <dd>
+            <span>{{vm.produto.flSngpc}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.flMedProlonga">Fl Med Prolonga</span></dt>
+        <dd>
+            <span>{{vm.produto.flMedProlonga}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.dsClassTerapeutica">Ds Class Terapeutica</span></dt>
+        <dd>
+            <span>{{vm.produto.dsClassTerapeutica}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.vlReal">Vl Real</span></dt>
+        <dd>
+            <span>{{vm.produto.vlReal}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.vlEstoque">Vl Estoque</span></dt>
+        <dd>
+            <span>{{vm.produto.vlEstoque}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.dsInformacoes">Ds Informacoes</span></dt>
+        <dd>
+            <span>{{vm.produto.dsInformacoes}}</span>
+        </dd>
+        <dt><span translate="gpwebApp.produto.grupo">Grupo</span></dt>
+        <dd>
+            <a ui-sref="grupo-detail({id:vm.produto.grupo.id})">{{vm.produto.grupo.id}}</a>
+        </dd>
+        <dt><span translate="gpwebApp.produto.marca">Marca</span></dt>
+        <dd>
+            <a ui-sref="marca-detail({id:vm.produto.marca.id})">{{vm.produto.marca.id}}</a>
+        </dd>
+        <dt><span translate="gpwebApp.produto.unidade">Unidade</span></dt>
+        <dd>
+            <a ui-sref="unidade-detail({id:vm.produto.unidade.id})">{{vm.produto.unidade.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,29 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "dsUnidade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "25"
+        },
+        {
+            "fieldName": "sgUnidade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "2"
+        }
+    ],
+    "changelogDate": "20160609172401",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "unidade",
+    "pagination": "pagination"
+}
