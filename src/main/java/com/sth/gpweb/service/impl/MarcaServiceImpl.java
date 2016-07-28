@@ -96,6 +96,18 @@ public class MarcaServiceImpl implements MarcaService{
     }
     
     /**
+     * Search for the nmFabricante already exists.
+     *
+     *  @param query the nmFabricante
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findNmFabricanteExists(String nmFabricante){
+    	log.debug("Request to search if the nmFabricante: {} already exists", nmFabricante);
+        return marcaRepository.findNmFabricanteExists(nmFabricante);
+    }
+    
+    /**
      * Search for the nmFabricante
      *
      *  @param query the nmFabricante

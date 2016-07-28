@@ -51,9 +51,15 @@ public class PromocaoResource {
     @Timed
     public ResponseEntity<Promocao> createPromocao(@Valid @RequestBody Promocao promocao) throws URISyntaxException {
         log.debug("REST request to save Promocao : {}", promocao);
+        
         if (promocao.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("promocao", "idexists", "A new promocao cannot already have an ID")).body(null);
         }
+        
+        if (promocaoService.findDsPromocaoExists(promocao.getDsPromocao()) != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("promocao", "nmexists", "A new promocao cannot already have an ID")).body(null);
+        }
+        
         Promocao result = promocaoService.save(promocao);
         return ResponseEntity.created(new URI("/api/promocaos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("promocao", result.getId().toString()))

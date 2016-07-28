@@ -23,12 +23,12 @@ public class ClassProduto implements Serializable {
 
     @NotNull
     @Size(min = 2, max = 2)
-    @Column(name = "cd_class_produto", length = 2, nullable = false)
+    @Column(name = "cd_class_produto", length = 2, nullable = false, unique = true)
     private String cdClassProduto;
 
     @NotNull
     @Size(min = 1, max = 80)
-    @Column(name = "ds_class_produto", length = 80, nullable = false)
+    @Column(name = "ds_class_produto", length = 80, nullable = false, unique = true)
     private String dsClassProduto;
 
     public Long getId() {

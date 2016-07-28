@@ -22,7 +22,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nm_filial" type="varchar(60)">
-                <constraints nullable="false" />
+                <constraints unique="true" nullable="false" />
             </column>
             
             <column name="nn_numero" type="integer">

@@ -51,6 +51,22 @@ public interface ClassProdutoService {
     Page<ClassProduto> search(String query, Pageable pageable);
     
     /**
+      * Search for the cdClassProduto already exists.
+      * 
+      *  @param query the cdClassProduto
+      *  @return the list of entities
+      */
+     String findCdClassProdutoExists(String cdClassProduto);   
+    
+    /**
+      * Search for the dsClassProduto already exists.
+      * 
+      *  @param query the dsClassProduto
+      *  @return the list of entities
+      */
+     String findDsClassProdutoExists(String dsClassProduto);
+    
+    /**
      * Search for the classproduto corresponding to the query name.
      * 
      *  @param description query for the name

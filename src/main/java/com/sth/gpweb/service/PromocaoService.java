@@ -49,4 +49,12 @@ public interface PromocaoService {
      *  @return the list of entities
      */
     Page<Promocao> search(String query, Pageable pageable);
+    
+    /**
+     * Search for the dsPromocao already exists.
+     * 
+     *  @param query the dsPromocao
+     *  @return the list of entities
+     */
+    String findDsPromocaoExists(String dsPromocao);
 }

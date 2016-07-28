@@ -129,8 +129,9 @@
         "Size": "O campo {{fieldName}} não obedece os requisitos de tamanho mínimo ou máximo!",
         "userexists": "Usuário já existente!",
         "emailexists": "Este email já está cadastrado!",
-        "idexists": "Novo(a) {{entityName}} não pode ter uma ID",
-        "nmexists": "Novo(a) {{entityName}} já está cadastrado!"        
+        "idexists": "Código já cadastrado!",
+        "nmexists": "{{entityName}} já cadastrado(a)!",
+        "sgexists": "Sigla já cadastrada!"
     },
     "footer": {
         "company": "Sistemas Empresariais",

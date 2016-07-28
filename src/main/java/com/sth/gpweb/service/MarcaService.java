@@ -51,6 +51,14 @@ public interface MarcaService {
     Page<Marca> search(String query, Pageable pageable);
     
     /**
+     * Search for the nmFabricante already exists.
+     * 
+     *  @param query the nmFabricante
+     *  @return the list of entities
+     */
+    String findNmFabricanteExists(String nmFabricante);
+    
+    /**
      * Search for the marca corresponding to the query name.
      * 
      *  @param description query for the name

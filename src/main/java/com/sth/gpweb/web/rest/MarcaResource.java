@@ -60,6 +60,10 @@ public class MarcaResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("marca", "idexists", "A new marca cannot already have an ID")).body(null);
         }
         
+        if (marcaService.findNmFabricanteExists(marca.getNmFabricante()) != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("marca", "nmexists", "A new marca cannot already have an ID")).body(null);
+        }
+        
         marca.setDtOperacao(LocalDate.now()); //Always use the operation date from server
         
         Marca result = marcaService.save(marca);

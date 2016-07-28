@@ -25,7 +25,7 @@ public class Promocao implements Serializable {
 
     @NotNull
     @Size(min = 1, max = 30)
-    @Column(name = "ds_promocao", length = 30, nullable = false)
+    @Column(name = "ds_promocao", length = 30, nullable = false, unique = true)
     private String dsPromocao;
 
     @Column(name = "dt_vencimento")

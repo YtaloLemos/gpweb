@@ -23,11 +23,11 @@ public class Unidade implements Serializable {
 
     @NotNull
     @Size(min = 1, max = 25)
-    @Column(name = "ds_unidade", length = 25, nullable = false)
+    @Column(name = "ds_unidade", length = 25, nullable = false, unique = true)
     private String dsUnidade;
 
     @Size(max = 2)
-    @Column(name = "sg_unidade", length = 2)
+    @Column(name = "sg_unidade", length = 2, nullable = false, unique = true)
     private String sgUnidade;
 
     public Long getId() {

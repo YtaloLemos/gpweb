@@ -94,4 +94,16 @@ public class FilialServiceImpl implements FilialService{
         log.debug("Request to search for a page of Filials for query {}", query);
         return filialSearchRepository.search(queryStringQuery(query), pageable);
     }
+    
+    /**
+     * Search for the nmFilial already exists.
+     *
+     *  @param query the nmFilial
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findNmFilialExists(String nmFilial){
+        log.debug("Request to search if the nmFilial: {} already exists", nmFilial);
+        return filialRepository.findNmFilialExists(nmFilial);
+    }
 }

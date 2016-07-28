@@ -96,6 +96,30 @@ public class ClassProdutoServiceImpl implements ClassProdutoService{
     }
     
     /**
+     * Search for the cdClassProduto already exists.
+     *
+     *  @param query the cdClassProduto
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findCdClassProdutoExists(String cdClassProduto){
+    	log.debug("Request to search if the cdClassProduto: {} already exists", cdClassProduto);
+        return classProdutoRepository.findCdClassProdutoExists(cdClassProduto);
+    }
+    
+    /**
+     * Search for the dsClassProduto already exists.
+     *
+     *  @param query the dsClassProduto
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findDsClassProdutoExists(String dsClassProduto){
+    	log.debug("Request to search if the dsClassProduto: {} already exists", dsClassProduto);
+        return classProdutoRepository.findDsClassProdutoExists(dsClassProduto);
+    }    
+    
+    /**
      * Search for the dsUnidade
      *
      *  @param query the nmFabricante

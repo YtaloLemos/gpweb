@@ -25,7 +25,7 @@ public class Marca implements Serializable {
 
     @NotNull
     @Size(min = 1, max = 35)
-    @Column(name = "nm_fabricante", length = 35, nullable = false)
+    @Column(name = "nm_fabricante", length = 35, nullable = false, unique = true)
     private String nmFabricante;
 
     @Size(max = 18)

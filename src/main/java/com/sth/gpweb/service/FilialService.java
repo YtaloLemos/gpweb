@@ -49,4 +49,12 @@ public interface FilialService {
      *  @return the list of entities
      */
     Page<Filial> search(String query, Pageable pageable);
+    
+    /**
+     * Search for the nmFilial already exists.
+     * 
+     *  @param query the nmFilial
+     *  @return the list of entities
+     */
+    String findNmFilialExists(String nmFilial);
 }

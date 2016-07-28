@@ -129,8 +129,9 @@
         "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
         "userexists": "Login name already used!",
         "emailexists": "E-mail is already in use!",
-        "idexists": "A new {{ entityName }} cannot already have an ID",
-        "nmexists": "A new {{ entityName }} already used!"
+        "idexists": "ID is already in use!",
+        "nmexists": "{{ entityName }} is already in use!",
+        "sgexists": "Initial is already in use!"
     },
     "footer": {
         "company": "Business Systems",

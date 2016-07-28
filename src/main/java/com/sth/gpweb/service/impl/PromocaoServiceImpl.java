@@ -94,4 +94,16 @@ public class PromocaoServiceImpl implements PromocaoService{
         log.debug("Request to search for a page of Promocaos for query {}", query);
         return promocaoSearchRepository.search(queryStringQuery(query), pageable);
     }
+    
+    /**
+     * Search for the dsPromocao already exists.
+     *
+     *  @param query the dsPromocao
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findDsPromocaoExists(String dsPromocao){
+    	log.debug("Request to search if the dsPromocao: {} already exists", dsPromocao);
+        return promocaoRepository.findDsPromocaoExists(dsPromocao);
+    }
 }

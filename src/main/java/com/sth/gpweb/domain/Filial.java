@@ -24,7 +24,7 @@ public class Filial implements Serializable {
 
     @NotNull
     @Size(min = 1, max = 60)
-    @Column(name = "nm_filial", length = 60, nullable = false)
+    @Column(name = "nm_filial", length = 60, nullable = false, unique = true)
     private String nmFilial;
 
     @Column(name = "nn_numero")

@@ -54,9 +54,19 @@ public class UnidadeResource {
     @Timed
     public ResponseEntity<Unidade> createUnidade(@Valid @RequestBody Unidade unidade) throws URISyntaxException {
         log.debug("REST request to save Unidade : {}", unidade);
+        
         if (unidade.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("unidade", "idexists", "A new unidade cannot already have an ID")).body(null);
         }
+        
+        if (unidadeService.findDsUnidadeExists(unidade.getDsUnidade()) != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("unidade", "nmexists", "A new unidade cannot already have an ID")).body(null);
+        }
+        
+        if (unidadeService.findSgUnidadeExists(unidade.getSgUnidade()) != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("unidade", "sgexists", "A new unidade cannot already have an ID")).body(null);
+        }
+        
         Unidade result = unidadeService.save(unidade);
         return ResponseEntity.created(new URI("/api/unidades/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("unidade", result.getId().toString()))

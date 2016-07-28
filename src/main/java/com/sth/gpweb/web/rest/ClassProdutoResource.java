@@ -54,9 +54,19 @@ public class ClassProdutoResource {
     @Timed
     public ResponseEntity<ClassProduto> createClassProduto(@Valid @RequestBody ClassProduto classProduto) throws URISyntaxException {
         log.debug("REST request to save ClassProduto : {}", classProduto);
+        
         if (classProduto.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("classProduto", "idexists", "A new classProduto cannot already have an ID")).body(null);
         }
+        
+        if (classProdutoService.findCdClassProdutoExists(classProduto.getCdClassProduto()) != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("classProduto", "idexists", "A new classificação cannot already have an ID")).body(null);
+        }
+        
+        if (classProdutoService.findDsClassProdutoExists(classProduto.getDsClassProduto()) != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("classProduto", "nmexists", "A new classificação cannot already have an ID")).body(null);
+        }
+        
         ClassProduto result = classProdutoService.save(classProduto);
         return ResponseEntity.created(new URI("/api/class-produtos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("classProduto", result.getId().toString()))

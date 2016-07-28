@@ -94,6 +94,30 @@ public class UnidadeServiceImpl implements UnidadeService{
     }
     
     /**
+     * Search for the dsUnidade already exists.
+     *
+     *  @param query the dsUnidade
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findDsUnidadeExists(String dsUnidade){
+    	log.debug("Request to search if the dsUnidade: {} already exists", dsUnidade);
+        return unidadeRepository.findDsUnidadeExists(dsUnidade);
+    }
+    
+    /**
+     * Search for the sgUnidade already exists.
+     *
+     *  @param query the sgUnidade
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)    
+    public String findSgUnidadeExists(String sgUnidade){
+    	log.debug("Request to search if the sgUnidade: {} already exists", sgUnidade);
+        return unidadeRepository.findSgUnidadeExists(sgUnidade);
+    }
+    
+    /**
      * Search for the dsUnidade
      *
      *  @param query the nmFabricante

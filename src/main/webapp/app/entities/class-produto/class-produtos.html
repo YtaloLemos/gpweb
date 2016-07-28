@@ -25,14 +25,14 @@
                         </span>
                         <span class="input-group-btn width-min" ng-if="vm.currentSearch">
                             <button class="btn btn-info ripple ripple-light" ng-click="vm.clear()">
-                                <span class="mdi mdi-delete"></span>
+                                <span class="mdi mdi-window-close"></span>
                             </button>
                         </span>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+    </div><!-- /.box-header -->
 
     <div class="box-body">
         <div class="table-responsive">
@@ -41,10 +41,11 @@
                     <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                         <th jh-sort-by="id" class="col-md-1 col-classificacao-codigo"><span translate="global.field.id">Código</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th jh-sort-by="cdClassProduto" class="col-md-1 col-classificacao-codigoClassificacao"><span translate="gpwebApp.classProduto.cdClassProduto">Código da Classificação</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
-                        <th jh-sort-by="dsClassProduto" class="col-md-9 col-classificacao-nome"><span translate="gpwebApp.classProduto.dsClassProduto">Nome</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
+                        <th jh-sort-by="dsClassProduto" class="col-md-9"><span translate="gpwebApp.classProduto.dsClassProduto">Nome</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-md-1 col-classificacao-acoes text-center" translate="global.field.actions">Ações</th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     <tr ng-repeat="classProduto in vm.classProdutos track by classProduto.id">
                         <td><a ui-sref="class-produto-detail({id:classProduto.id})">{{classProduto.id}}</a></td>
@@ -77,8 +78,10 @@
             </table>
         </div><!-- /.table-responsive -->
     </div><!-- /.box-body -->
+    
+    <!-- paginação -->
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
-    </div>
-</div>
+    </div><!-- /.text-center -->
+</div><!-- /.box -->

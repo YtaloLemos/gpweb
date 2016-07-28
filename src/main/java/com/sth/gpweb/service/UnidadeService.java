@@ -50,6 +50,22 @@ public interface UnidadeService {
     Page<Unidade> search(String query, Pageable pageable);
     
     /**
+     * Search for the dsUnidade already exists.
+     * 
+     *  @param query the dsUnidade
+     *  @return the list of entities
+     */
+    String findDsUnidadeExists(String dsUnidade);
+    
+    /**
+     * Search for the sgUnidade already exists.
+     * 
+     *  @param query the sgUnidade
+     *  @return the list of entities
+     */
+    String findSgUnidadeExists(String sgUnidade);
+    
+    /**
      * Search for the unidade corresponding to the query name.
      * 
      *  @param description query for the name

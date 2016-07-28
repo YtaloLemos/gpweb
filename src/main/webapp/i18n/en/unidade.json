@@ -15,9 +15,10 @@
             },
             "detail": {
                 "title": "Unit"
-            },
+            },            
             "dsUnidade": "Name",
-            "sgUnidade": "Unit"
+            "sgUnidade": "Initial"
+            
         }
     }
 }
