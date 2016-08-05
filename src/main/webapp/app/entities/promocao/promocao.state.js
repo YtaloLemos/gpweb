@@ -91,7 +91,7 @@
                     resolve: {
                         entity: function () {
                             return {
-                                dsPromocao: null,
+                                nmPromocao: null,
                                 dtVencimento: null,
                                 nnDiaData: null,
                                 nnDiaSemana: null,

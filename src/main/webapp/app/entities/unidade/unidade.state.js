@@ -91,7 +91,7 @@
                     resolve: {
                         entity: function () {
                             return {
-                                dsUnidade: null,
+                                nmUnidade: null,
                                 sgUnidade: null,
                                 id: null
                             };

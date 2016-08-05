@@ -284,13 +284,13 @@
                         Unidade
                     </label>                   
                     <ourselect id-select="field_entidade4" ng-model="vm.produto.unidade" 
-                        entity-field-name="dsUnidade" entity-field-id="id" entity-url="unidades">
+                        entity-field-name="nmUnidade" entity-field-id="id" entity-url="unidades">
                     </ourselect>
                     <select class="js-data-example-ajax" id="field_entidade4" style="width: 100%">
                         <option value="" selected="selected"></option>
                     </select>                   
                     <div class="select2-label">
-                        <span>{{vm.produto.unidade.id + " - "}}  {{vm.produto.unidade.dsUnidade}} 
+                        <span>{{vm.produto.unidade.id + " - "}}  {{vm.produto.unidade.nmUnidade}} 
                             <a class="select2-btn pull-right"	ng-click="vm.produto.unidade = null">
                                 <span class="mdi mdi-close-octagon"></span>&nbsp;
                             </a>

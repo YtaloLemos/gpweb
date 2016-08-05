@@ -94,15 +94,15 @@ public class UnidadeServiceImpl implements UnidadeService{
     }
     
     /**
-     * Search for the dsUnidade already exists.
+     * Search for the nmUnidade already exists.
      *
-     *  @param query the dsUnidade
+     *  @param query the nmUnidade
      *  @return the list of entities
      */
     @Transactional(readOnly = true)    
-    public String findDsUnidadeExists(String dsUnidade){
-    	log.debug("Request to search if the dsUnidade: {} already exists", dsUnidade);
-        return unidadeRepository.findDsUnidadeExists(dsUnidade);
+    public String findNmUnidadeExists(String nmUnidade){
+    	log.debug("Request to search if the nmUnidade: {} already exists", nmUnidade);
+        return unidadeRepository.findNmUnidadeExists(nmUnidade);
     }
     
     /**
@@ -118,14 +118,14 @@ public class UnidadeServiceImpl implements UnidadeService{
     }
     
     /**
-     * Search for the dsUnidade
+     * Search for the nmUnidade
      *
      *  @param query the nmFabricante
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<Unidade> findByDsUnidadeStartingWithOrderByDsUnidadeAsc(String descricao, Pageable pageable){
+    public Page<Unidade> findByNmUnidadeStartingWithOrderByNmUnidadeAsc(String descricao, Pageable pageable){
 	    log.debug("Request to...", descricao);
-	    return unidadeRepository.findByDsUnidadeStartingWithOrderByDsUnidadeAsc(descricao, pageable);
+	    return unidadeRepository.findByNmUnidadeStartingWithOrderByNmUnidadeAsc(descricao, pageable);
     }
 }

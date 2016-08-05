@@ -17,15 +17,15 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface UnidadeRepository extends JpaRepository<Unidade,Long> {
 
-	//Verify if dsUnidade already exits on database before insert	
-	@Query("SELECT u.dsUnidade FROM Unidade u where u.dsUnidade = :dsUnidade") 
-	String findDsUnidadeExists(@Param("dsUnidade") String dsUnidade);
+	//Verify if nmUnidade already exits on database before insert	
+	@Query("SELECT u.nmUnidade FROM Unidade u where u.nmUnidade = :nmUnidade") 
+	String findNmUnidadeExists(@Param("nmUnidade") String nmUnidade);
     
     //Verify if sgUnidade already exits on database before insert	
 	@Query("SELECT u.sgUnidade FROM Unidade u where u.sgUnidade = :sgUnidade") 
 	String findSgUnidadeExists(@Param("sgUnidade") String sgUnidade);
 
 	//Find by name, used by select2 on product
-	Page<Unidade> findByDsUnidadeStartingWithOrderByDsUnidadeAsc(String descricao, Pageable pageable);
+	Page<Unidade> findByNmUnidadeStartingWithOrderByNmUnidadeAsc(String descricao, Pageable pageable);
 	
 }

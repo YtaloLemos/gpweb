@@ -18,21 +18,21 @@
             </div>
             <div class="col-sm-7">
                 <div class="form-group">
-                    <label class="control-label" translate="gpwebApp.promocao.dsPromocao" for="field_dsPromocao">Nome</label>
-                    <input type="text" class="form-control text-uppercase" name="dsPromocao" id="field_dsPromocao"
-                            ng-model="vm.promocao.dsPromocao"
+                    <label class="control-label" translate="gpwebApp.promocao.nmPromocao" for="field_nmPromocao">Nome</label>
+                    <input type="text" class="form-control text-uppercase" name="nmPromocao" id="field_nmPromocao"
+                            ng-model="vm.promocao.nmPromocao"
                             required ng-minlength="1" ng-maxlength="30" />
-                    <div ng-show="editForm.dsPromocao.$invalid">
+                    <div ng-show="editForm.nmPromocao.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.dsPromocao.$error.required" translate="entity.validation.required">
+                            ng-show="editForm.nmPromocao.$error.required" translate="entity.validation.required">
                             O campo é obrigatório.
                         </p>
                         <p class="help-block"
-                            ng-show="editForm.dsPromocao.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                            ng-show="editForm.nmPromocao.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
                             Este campo não pode ter menos que 1 caractere.
                         </p>
                         <p class="help-block"
-                            ng-show="editForm.dsPromocao.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="30">
+                            ng-show="editForm.nmPromocao.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="30">
                             Este campo não pode ter mais que 30 caracteres.
                         </p>
                     </div>

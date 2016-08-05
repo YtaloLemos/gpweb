@@ -41,7 +41,7 @@
                 <thead>
                     <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                         <th class="col-md-1 col-promocao-codigo" jh-sort-by="id"><span translate="global.field.id">Código</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
-                        <th class="col-md-3" jh-sort-by="dsPromocao"><span translate="gpwebApp.promocao.dsPromocao">Nome</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
+                        <th class="col-md-3" jh-sort-by="nmPromocao"><span translate="gpwebApp.promocao.nmPromocao">Nome</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-md-1 col-promocao-ate" jh-sort-by="dtVencimento"><span translate="gpwebApp.promocao.dtVencimento">Até:</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-md-1 col-promocao-dia" jh-sort-by="nnDiaData"><span translate="gpwebApp.promocao.nnDiaData">Dia:</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-md-1 col-promocao-em" jh-sort-by="nnDiaSemana"><span translate="gpwebApp.promocao.nnDiaSemana">Em:</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>                        
@@ -55,7 +55,7 @@
                 <tbody>
                     <tr ng-repeat="promocao in vm.promocaos track by promocao.id">
                         <td><a ui-sref="promocao-detail({id:promocao.id})">{{promocao.id}}</a></td>
-                        <td class="text-uppercase">{{promocao.dsPromocao}}</td>
+                        <td class="text-uppercase">{{promocao.nmPromocao}}</td>
                         <td>
                             <span ng-show="promocao.nnTipo == 1">{{promocao.dtVencimento | date:'dd/MM/yyyy'}}</span>
                             <div ng-show="promocao.nnTipo != 1"> - </div>

@@ -41,7 +41,7 @@
                 <thead>
                     <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                         <th class="col-sm-1 col-unidade-codigo" jh-sort-by="id"><span translate="global.field.id">Código</span><span class="glyphicon glyphicon-sort pull-right"></span></th>
-                        <th class="col-sm-9" jh-sort-by="dsUnidade"><span translate="gpwebApp.unidade.dsUnidade">Nome</span><span class="glyphicon glyphicon-sort pull-right"></span></th>
+                        <th class="col-sm-9" jh-sort-by="nmUnidade"><span translate="gpwebApp.unidade.nmUnidade">Nome</span><span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-sm-1 col-unidade-unidade" jh-sort-by="sgUnidade"><span translate="gpwebApp.unidade.sgUnidade">Unidade</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-sm-1 col-unidade-acoes text-center"><span translate="global.field.actions">Ações</span></th>
                     </tr>
@@ -50,7 +50,7 @@
                 <tbody>
                     <tr ng-repeat="unidade in vm.unidades track by unidade.id">
                         <td><a ui-sref="unidade-detail({id:unidade.id})">{{unidade.id}}</a></td>
-                        <td class="text-uppercase">{{unidade.dsUnidade}}</td>
+                        <td class="text-uppercase">{{unidade.nmUnidade}}</td>
                         <td class="text-uppercase">{{unidade.sgUnidade}}</td>
                         <td class="text-center">
                             <button type="submit"

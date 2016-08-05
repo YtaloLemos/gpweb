@@ -59,7 +59,7 @@ public class UnidadeResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("unidade", "idexists", "A new unidade cannot already have an ID")).body(null);
         }
         
-        if (unidadeService.findDsUnidadeExists(unidade.getDsUnidade()) != null) {
+        if (unidadeService.findNmUnidadeExists(unidade.getNmUnidade()) != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("unidade", "nmexists", "A new unidade cannot already have an ID")).body(null);
         }
         
@@ -191,7 +191,7 @@ public class UnidadeResource {
     		if(query.trim().equalsIgnoreCase("*")){
     			page = unidadeService.findAll(pageable);
     		}else{
-    			page = unidadeService.findByDsUnidadeStartingWithOrderByDsUnidadeAsc(query, pageable);    			
+    			page = unidadeService.findByNmUnidadeStartingWithOrderByNmUnidadeAsc(query, pageable);    			
     		};	    	
 	    	
 	    	HttpHeaders headers = new HttpHeaders();
