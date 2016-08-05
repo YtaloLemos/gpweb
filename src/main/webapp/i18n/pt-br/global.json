@@ -17,7 +17,7 @@
                 "filial": "Filial",
                 "marca": "Marca",
                 "unidade": "Unidade",
-                "catalogo": "Catálogo",
+                "produto": "Produto",
                 "classProduto": "Classificação",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
