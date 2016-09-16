@@ -19,6 +19,7 @@
                 "unidade": "Unit",
                 "produto": "Product",
                 "classProduto": "Classification",
+                "produtoFilial": "Branch Product",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -89,6 +90,10 @@
         },
         "ribbon": {
             "dev":"Development"
+        },
+        "condition": {
+            "true": "Yes",
+            "false": "No"
         }
     },
     "entity": {

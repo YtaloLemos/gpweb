@@ -72,8 +72,41 @@
                 }],
                 entity: ['$stateParams', 'Marca', function($stateParams, Marca) {
                     return Marca.get({id : $stateParams.id});
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'marca',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
                 }]
             }
+        })
+        .state('marca-detail.edit', {
+            parent: 'marca-detail',
+            url: '/detail/edit',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/marca/marca-dialog.html',
+                    controller: 'MarcaDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Marca', function(Marca) {
+                            return Marca.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('^', {}, { reload: false });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         })
         .state('marca.new', {
             parent: 'marca',
@@ -91,9 +124,9 @@
                     resolve: {
                         entity: function () {
                             return {
-                                nmFabricante: null,
-                                cdCgc: null,
-                                cdCgf: null,
+                                nmMarca: null,
+                                cdCnpj: null,
+                                cdIe: null,
                                 nnNumero: null,
                                 dsComplemento: null,
                                 cdTel: null,

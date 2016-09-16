@@ -5,9 +5,9 @@
         .module('gpwebApp')
         .controller('ProdutoDialogController', ProdutoDialogController);
 
-    ProdutoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Produto', 'Grupo', 'Marca', 'Unidade', 'ClassProduto', 'Subgrupo'];
+    ProdutoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Produto', 'Marca', 'Unidade', 'ClassProduto', 'NewSelectService'];
 
-    function ProdutoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Produto, Grupo, Marca, Unidade, ClassProduto, Subgrupo) {
+    function ProdutoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Produto, Marca, Unidade, ClassProduto, NewSelectService) {
         var vm = this;
 
         vm.produto = entity;
@@ -15,15 +15,8 @@
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
         vm.save = save;
-        vm.grupos = Grupo.query({filter: 'produto-is-null'});
-        $q.all([vm.produto.$promise, vm.grupos.$promise]).then(function() {
-            if (!vm.produto.grupo || !vm.produto.grupo.id) {
-                return $q.reject();
-            }
-            return Grupo.get({id : vm.produto.grupo.id}).$promise;
-        }).then(function(grupo) {
-            vm.grupos.push(grupo);
-        });
+        vm.obj = NewSelectService.obj;        
+        
         vm.marcas = Marca.query({filter: 'produto-is-null'});
         $q.all([vm.produto.$promise, vm.marcas.$promise]).then(function() {
             if (!vm.produto.marca || !vm.produto.marca.id) {
@@ -42,15 +35,7 @@
         }).then(function(unidade) {
             vm.unidades.push(unidade);
         });
-        vm.subgrupos = Subgrupo.query({filter: 'produto-is-null'});
-        $q.all([vm.produto.$promise, vm.subgrupos.$promise]).then(function() {
-            if (!vm.produto.subgrupo || !vm.produto.subgrupo.id) {
-                return $q.reject();
-            }
-            return Subgrupo.get({id : vm.produto.subgrupo.id}).$promise;
-        }).then(function(subgrupo) {
-            vm.subgrupos.push(subgrupo);
-        });
+        
         vm.classprodutos = ClassProduto.query();
 
         $timeout(function (){
@@ -67,12 +52,10 @@
         	vm.produto.nmProduto = angular.uppercase(vm.produto.nmProduto);
         	vm.produto.cdBarras  = angular.uppercase(vm.produto.cdBarras);
         	vm.produto.cdNcm     = angular.uppercase(vm.produto.cdNcm);
-        	vm.produto.cdEan     = angular.uppercase(vm.produto.cdEan);
+        	vm.produto.cdGtin     = angular.uppercase(vm.produto.cdGtin);
         	vm.produto.cdAnp     = angular.uppercase(vm.produto.cdAnp);
         	vm.produto.dsAnp     = angular.uppercase(vm.produto.dsAnp);
         	vm.produto.cdContaContabil = angular.uppercase(vm.produto.cdContaContabil);
-        	vm.produto.materiaPrima = angular.uppercase(vm.produto.materiaPrima);
-        	vm.produto.dsClassTerapeutica = angular.uppercase(vm.produto.dsClassTerapeutica);
         	vm.produto.dsInformacoes = angular.uppercase(vm.produto.dsInformacoes);        	
         };
 

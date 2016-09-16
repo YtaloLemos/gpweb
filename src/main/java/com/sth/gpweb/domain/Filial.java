@@ -39,15 +39,15 @@ public class Filial implements Serializable {
     private String cdCnpj;
 
     @Size(max = 18)
-    @Column(name = "cd_cgf", length = 18)
-    private String cdCgf;
-
+    @Column(name = "cd_ie", length = 18)
+    private String cdIe;
+    
     @Size(max = 30)
     @Column(name = "ds_site", length = 30)
     private String dsSite;
 
-    @Column(name = "fl_ativa")
-    private Boolean flAtiva;
+    @Column(name = "fl_inativo")
+    private Boolean flInativo;
 
     @Size(max = 150)
     @Column(name = "nm_razao", length = 150)
@@ -72,18 +72,16 @@ public class Filial implements Serializable {
     @Column(name = "dt_operacao")
     private LocalDate dtOperacao;
 
-    @Column(name = "nn_versao")
-    private Integer nnVersao;
-
     @Column(name = "fl_tprec")
     private Boolean flTprec;
 
     @Size(max = 2)
     @Column(name = "ds_pis_cofins", length = 2)
     private String dsPisCofins;
-
-    @Column(name = "nn_mdf_versao")
-    private Integer nnMdfVersao;
+    
+    @Size(max = 100)
+    @Column(name = "ds_email", length = 100)
+    private String dsEmail;
 
     @Column(name = "fl_envia_email")
     private Boolean flEnviaEmail;
@@ -132,14 +130,14 @@ public class Filial implements Serializable {
         this.cdCnpj = cdCnpj;
     }
 
-    public String getCdCgf() {
-        return cdCgf;
+    public String getCdIe() {
+        return cdIe;
     }
 
-    public void setCdCgf(String cdCgf) {
-        this.cdCgf = cdCgf;
+    public void setCdIe(String cdIe) {
+        this.cdIe = cdIe;
     }
-
+    
     public String getDsSite() {
         return dsSite;
     }
@@ -148,12 +146,12 @@ public class Filial implements Serializable {
         this.dsSite = dsSite;
     }
 
-    public Boolean isFlAtiva() {
-        return flAtiva;
+    public Boolean isFlInativo() {
+        return flInativo;
     }
 
-    public void setFlAtiva(Boolean flAtiva) {
-        this.flAtiva = flAtiva;
+    public void setFlInativo(Boolean flInativo) {
+        this.flInativo = flInativo;
     }
 
     public String getNmRazao() {
@@ -204,14 +202,6 @@ public class Filial implements Serializable {
         this.dtOperacao = dtOperacao;
     }
 
-    public Integer getNnVersao() {
-        return nnVersao;
-    }
-
-    public void setNnVersao(Integer nnVersao) {
-        this.nnVersao = nnVersao;
-    }
-
     public Boolean isFlTprec() {
         return flTprec;
     }
@@ -227,13 +217,13 @@ public class Filial implements Serializable {
     public void setDsPisCofins(String dsPisCofins) {
         this.dsPisCofins = dsPisCofins;
     }
-
-    public Integer getNnMdfVersao() {
-        return nnMdfVersao;
+    
+    public String getDsEmail() {
+        return dsEmail;
     }
 
-    public void setNnMdfVersao(Integer nnMdfVersao) {
-        this.nnMdfVersao = nnMdfVersao;
+    public void setDsEmail(String dsEmail) {
+        this.dsEmail = dsEmail;
     }
 
     public Boolean isFlEnviaEmail() {
@@ -280,19 +270,18 @@ public class Filial implements Serializable {
             ", nnNumero='" + nnNumero + "'" +
             ", dsComplemento='" + dsComplemento + "'" +
             ", cdCnpj='" + cdCnpj + "'" +
-            ", cdCgf='" + cdCgf + "'" +
+            ", cdIe='" + cdIe + "'" +            
             ", dsSite='" + dsSite + "'" +
-            ", flAtiva='" + flAtiva + "'" +
+            ", flInativo='" + flInativo + "'" +
             ", nmRazao='" + nmRazao + "'" +
             ", cdTel='" + cdTel + "'" +
             ", cdTel1='" + cdTel1 + "'" +
             ", cdTel2='" + cdTel2 + "'" +
             ", cdFax='" + cdFax + "'" +
             ", dtOperacao='" + dtOperacao + "'" +
-            ", nnVersao='" + nnVersao + "'" +
             ", flTprec='" + flTprec + "'" +
             ", dsPisCofins='" + dsPisCofins + "'" +
-            ", nnMdfVersao='" + nnMdfVersao + "'" +
+            ", dsEmail='" + dsEmail + "'" +
             ", flEnviaEmail='" + flEnviaEmail + "'" +
             ", dsObs='" + dsObs + "'" +
             '}';

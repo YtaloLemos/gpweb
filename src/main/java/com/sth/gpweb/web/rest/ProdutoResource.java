@@ -24,10 +24,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
+import com.google.gson.Gson;
 import com.sth.gpweb.domain.Produto;
 import com.sth.gpweb.service.ProdutoService;
 import com.sth.gpweb.web.rest.util.HeaderUtil;
 import com.sth.gpweb.web.rest.util.PaginationUtil;
+import com.sth.gpweb.web.rest.util.ScSelect;
 
 /**
  * REST controller for managing Produto.
@@ -166,5 +168,64 @@ public class ProdutoResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-
+    /**
+     * SEARCH  /_search/produtos/select?query=:query : search for the produto corresponding
+     * to the query.
+     *
+     * @param query the query of the produto search
+     * @return the result of the search
+     */
+    @RequestMapping(value = "/_search/produtos/select",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<String> searchProdutoSelect(@RequestParam String query, @RequestParam String field, Pageable pageable)
+        throws URISyntaxException {
+    	
+    	try{
+    		Page<Produto> page;
+    		
+    		if(query.trim().equalsIgnoreCase("*")){
+    			//Find all
+    			if(field.trim().equalsIgnoreCase("id")){
+    				//Find by id
+    				page = produtoService.findAllOrderById(pageable); 
+    			}else{
+    				//Find by name
+    				page = produtoService.findAllOrderByNmProduto(pageable);
+    			} 
+    		}else{    			
+    			if(field.trim().equalsIgnoreCase("id")){
+    				//Find by id
+    				page = produtoService.findByIdStartingWithOrderByIdAsc(query, pageable); 
+    			}else{
+    				//Find by name
+    				page = produtoService.findByNomeStartingWithOrderByNomeAsc(query, pageable);
+    			}
+    		};
+    		
+	    	HttpHeaders headers = new HttpHeaders();
+	    	headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/produtos/select");
+	    	
+	    	//Json modified to supply sc-select component on frontend
+	        ScSelect<Produto> scSelect = new ScSelect<>(
+	        			// Query params:
+		        			"", 
+		        			"request", 
+		        			Integer.toString(page.getNumber()),
+	        			// ScTrackmatches params:	        
+		        			page.getContent(),
+	        			// Results params:
+		        			Long.toString(page.getTotalElements()), 
+							Integer.toString(page.getNumber() * page.getSize()), 
+		        			Integer.toString(page.getSize()) 
+					);
+	        
+	        return new ResponseEntity<String>(new Gson().toJson(scSelect), headers, HttpStatus.OK);
+	        
+    	}catch(Exception e){
+    		log.error(e.getMessage());
+    		return ResponseEntity.badRequest().header("Falha", e.getMessage()).body(null);
+    	}		
+    }
 }

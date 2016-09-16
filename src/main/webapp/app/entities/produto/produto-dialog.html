@@ -101,13 +101,13 @@
             
             <div class="col-md-3">
                 <div class="form-group">
-                    <label class="control-label" translate="gpwebApp.produto.cdEan" for="field_cdEan">Código EAN</label>
-                    <input type="text" class="form-control text-uppercase" name="cdEan" id="field_cdEan"
-                            ng-model="vm.produto.cdEan"
+                    <label class="control-label" translate="gpwebApp.produto.cdGtin" for="field_cdGtin">Código GTIN</label>
+                    <input type="text" class="form-control text-uppercase" name="cdGtin" id="field_cdGtin"
+                            ng-model="vm.produto.cdGtin"
                             ng-maxlength="20" />
-                    <div ng-show="editForm.cdEan.$invalid">
+                    <div ng-show="editForm.cdGtin.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.cdEan.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                            ng-show="editForm.cdGtin.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
                             Este campo não pode ter mais que 20 caracteres.
                         </p>
                     </div>
@@ -161,40 +161,25 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label class="control-label" translate="gpwebApp.produto.materiaPrima" for="field_materiaPrima">Matéria Prima</label>
-                    <input type="text" class="form-control text-uppercase" name="materiaPrima" id="field_materiaPrima"
-                            ng-model="vm.produto.materiaPrima"
-                            ng-maxlength="1" />
-                    <div ng-show="editForm.materiaPrima.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.materiaPrima.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="1">
-                            Este campo não pode ter menos que 1 caractere.
-                        </p>
-                    </div>
-                </div>
-            </div>            
-        </div>    
-        
-        <div class="row">
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label class="control-label" translate="gpwebApp.produto.vlReal" for="field_vlReal">Valor Real</label>
-                    <input type="number" class="form-control" name="vlReal" id="field_vlReal"
-                            ng-model="vm.produto.vlReal"
-                             />
-                </div>    
-            </div>
-
-            <div class="col-md-2">
-                <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.vlEstoque" for="field_vlEstoque">Valor Estoque</label>
                     <input type="number" class="form-control" name="vlEstoque" id="field_vlEstoque"
                             ng-model="vm.produto.vlEstoque"
                              />
                 </div>    
+            </div>          
+        </div>    
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" translate="gpwebApp.produto.vlVenda" for="field_vlVenda">Valor Venda</label>
+                    <input type="number" class="form-control" name="vlVenda" id="field_vlVenda"
+                            ng-model="vm.produto.vlVenda"
+                             />
+                </div>    
             </div>
             
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.dsInformacoes" for="field_dsInformacoes">Informações</label>
                     <input type="text" class="form-control text-uppercase" name="dsInformacoes" id="field_dsInformacoes"
@@ -216,41 +201,75 @@
                 <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.grupo">
                         Grupo
-                    </label>                   
-                    <ourselect id-select="field_entidade1" ng-model="vm.produto.grupo" 
-                        entity-field-name="nmGrupo" entity-field-id="id" entity-url="grupos">
-                    </ourselect>
-                    <select class="js-data-example-ajax" id="field_entidade1" style="width: 100%">
-                        <option value="" selected="selected"></option>
-                    </select>                   
-                    <div class="select2-label">
-                        <span>{{vm.produto.grupo.id + " - "}}  {{vm.produto.grupo.nmGrupo}} 
-                            <a class="select2-btn pull-right"	ng-click="vm.produto.grupo = null">
-                                <span class="mdi mdi-close-octagon"></span>&nbsp;
-                            </a>
-                        </span>
-                    </div>                  
+                    </label>                      
+		            <div class="row">  
+						<div class="col-md-4">               
+					     <sc-select
+					       ng-model="vm.produto.grupo"
+					       sc-options="grupo as grupo.id for grupo in vm.obj.searchAsync(searchText, page, 'api/_search/grupos/select', 'id')"
+					       page-limit="vm.obj.asyncPageLimit"
+					       total-items="vm.obj.totalResults"
+					       placeholder="Código"
+					       loading-delay="200">
+					     </sc-select>
+					    </div> 
+						<div class="col-md-6">
+			             <sc-select
+						       ng-model="vm.produto.grupo"
+						       sc-options="grupo as grupo.nmGrupo for grupo in vm.obj.searchAsync(searchText, page, 'api/_search/grupos/select', 'nmGrupo')"
+						       page-limit="vm.obj.asyncPageLimit"
+						       total-items="vm.obj.totalResults"
+						       placeholder="Descrição"
+						       loading-delay="200">
+						 </sc-select>			     
+					    </div>
+					    
+					    <div class="col-md-1">			     
+					     <div class="col-md-1">
+					     	<button type="button" class="btn btn-default" ng-click="vm.produto.grupo = null">
+					            <span class="glyphicon glyphicon-ban-circle"></span>
+					        </button>
+					     </div>
+			            </div>
+				     </div>                                   
                 </div>
             </div>
             <div class="col-md-6">
-                <!-- Diretiva SubGrupo-->                
+                <!-- Diretiva Subgrupo-->
                 <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.subgrupo">
                         Subgrupo
-                    </label>                   
-                    <ourselect id-select="field_entidade2" ng-model="vm.produto.subgrupo" 
-                        entity-field-name="nmSubgrupo" entity-field-id="id" entity-url="subgrupos">
-                    </ourselect>
-                    <select class="js-data-example-ajax" id="field_entidade2" style="width: 100%">
-                        <option value="" selected="selected"></option>
-                    </select>                   
-                    <div class="select2-label">
-                        <span>{{vm.produto.subgrupo.id + " - "}}  {{vm.produto.subgrupo.nmSubgrupo}} 
-                            <a class="select2-btn pull-right"	ng-click="vm.produto.subgrupo = null">
-                                <span class="mdi mdi-close-octagon"></span>&nbsp;
-                            </a>
-                        </span>
-                    </div>                  
+                    </label>                      
+		            <div class="row">  
+						<div class="col-md-4">               
+					     <sc-select
+					       ng-model="vm.produto.subgrupo"
+					       sc-options="subgrupo as subgrupo.id for subgrupo in vm.obj.searchAsync(searchText, page, 'api/_search/subgrupos/select', 'id')"
+					       page-limit="vm.obj.asyncPageLimit"
+					       total-items="vm.obj.totalResults"
+					       placeholder="Código"
+					       loading-delay="200">
+					     </sc-select>
+					    </div> 
+						<div class="col-md-6">
+			             <sc-select
+						       ng-model="vm.produto.subgrupo"
+						       sc-options="subgrupo as subgrupo.nmSubgrupo for subgrupo in vm.obj.searchAsync(searchText, page, 'api/_search/subgrupos/select', 'nmSubgrupo')"
+						       page-limit="vm.obj.asyncPageLimit"
+						       total-items="vm.obj.totalResults"
+						       placeholder="Descrição"
+						       loading-delay="200">
+						 </sc-select>			     
+					    </div>
+					    
+					    <div class="col-md-1">			     
+						    <div class="col-md-1">
+						    	<button type="button" class="btn btn-default" ng-click="vm.produto.subgrupo = null">
+						           <span class="glyphicon glyphicon-ban-circle"></span>
+						       	</button>
+						    </div>
+			            </div>
+				     </div>                                   
                 </div>
             </div>
         </div>  
@@ -261,42 +280,74 @@
                 <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.marca">
                         Marca
-                    </label>                   
-                    <ourselect id-select="field_entidade3" ng-model="vm.produto.marca" 
-                        entity-field-name="nmFabricante" entity-field-id="id" entity-url="marcas">
-                    </ourselect>
-                    <select class="js-data-example-ajax" id="field_entidade3" style="width: 100%">
-                        <option value="" selected="selected"></option>
-                    </select>                   
-                    <div class="select2-label">
-                        <span>{{vm.produto.marca.id + " - "}}  {{vm.produto.marca.nmFabricante}} 
-                            <a class="select2-btn pull-right"	ng-click="vm.produto.marca = null">
-                                <span class="mdi mdi-close-octagon"></span>&nbsp;
-                            </a>
-                        </span>
-                    </div>                  
-                </div>                
+                    </label>                      
+		            <div class="row">  
+						<div class="col-md-4">               
+					     <sc-select
+					       ng-model="vm.produto.marca"
+					       sc-options="marca as marca.id for marca in vm.obj.searchAsync(searchText, page, 'api/_search/marcas/select', 'id')"
+					       page-limit="vm.obj.asyncPageLimit"
+					       total-items="vm.obj.totalResults"
+					       placeholder="Código"
+					       loading-delay="200">
+					     </sc-select>
+					    </div> 
+						<div class="col-md-6">
+			             <sc-select
+						       ng-model="vm.produto.marca"
+						       sc-options="marca as marca.nmMarca for marca in vm.obj.searchAsync(searchText, page, 'api/_search/marcas/select', 'nmMarca')"
+						       page-limit="vm.obj.asyncPageLimit"
+						       total-items="vm.obj.totalResults"
+						       placeholder="Descrição"
+						       loading-delay="200">
+						 </sc-select>			     
+					    </div>					    
+					    <div class="col-md-1">			     
+						    <div class="col-md-1">
+						    	<button type="button" class="btn btn-default" ng-click="vm.produto.marca = null">
+						           <span class="glyphicon glyphicon-ban-circle"></span>
+						       	</button>
+						    </div>
+			            </div>
+				     </div>                                   
+                </div>               
             </div>
 		    <div class="col-md-6">
-		        <!-- Diretiva Unidade-->
+		        <!-- Diretiva Unidade-->                
                 <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.unidade">
                         Unidade
-                    </label>                   
-                    <ourselect id-select="field_entidade4" ng-model="vm.produto.unidade" 
-                        entity-field-name="nmUnidade" entity-field-id="id" entity-url="unidades">
-                    </ourselect>
-                    <select class="js-data-example-ajax" id="field_entidade4" style="width: 100%">
-                        <option value="" selected="selected"></option>
-                    </select>                   
-                    <div class="select2-label">
-                        <span>{{vm.produto.unidade.id + " - "}}  {{vm.produto.unidade.nmUnidade}} 
-                            <a class="select2-btn pull-right"	ng-click="vm.produto.unidade = null">
-                                <span class="mdi mdi-close-octagon"></span>&nbsp;
-                            </a>
-                        </span>
-                    </div>                  
-                </div>                 
+                    </label>                      
+		            <div class="row">  
+						<div class="col-md-4">               
+					     <sc-select
+					       ng-model="vm.produto.unidade"
+					       sc-options="unidade as unidade.id for unidade in vm.obj.searchAsync(searchText, page, 'api/_search/unidades/select', 'id')"
+					       page-limit="vm.obj.asyncPageLimit"
+					       total-items="vm.obj.totalResults"
+					       placeholder="Código"
+					       loading-delay="200">
+					     </sc-select>
+					    </div> 
+						<div class="col-md-6">
+			             <sc-select
+						       ng-model="vm.produto.unidade"
+						       sc-options="unidade as unidade.nmUnidade for unidade in vm.obj.searchAsync(searchText, page, 'api/_search/unidades/select', 'nmUnidade')"
+						       page-limit="vm.obj.asyncPageLimit"
+						       total-items="vm.obj.totalResults"
+						       placeholder="Descrição"
+						       loading-delay="200">
+						 </sc-select>			     
+					    </div>					    
+					    <div class="col-md-1">			     
+						    <div class="col-md-1">
+						    	<button type="button" class="btn btn-default" ng-click="vm.produto.unidade = null">
+						           <span class="glyphicon glyphicon-ban-circle"></span>
+						       	</button>
+						    </div>
+			            </div>
+				     </div>                                   
+                </div>              
 		    </div>
 		</div>
         <div class="row">
@@ -304,22 +355,38 @@
 		        <!-- Diretiva ClassProduto-->
                 <div class="form-group">
                     <label class="control-label" translate="gpwebApp.produto.classProduto">
-                        Unidade
-                    </label>                   
-                    <ourselect id-select="field_entidade5" ng-model="vm.produto.classProduto" 
-                        entity-field-name="dsClassProduto" entity-field-id="cdClassProduto" entity-url="class-produtos">
-                    </ourselect>
-                    <select class="js-data-example-ajax" id="field_entidade5" style="width: 100%">
-                        <option value="" selected="selected"></option>
-                    </select>                   
-                    <div class="select2-label">
-                        <span>{{vm.produto.classProduto.cdClassProduto + " - "}}  {{vm.produto.classProduto.dsClassProduto}} 
-                            <a class="select2-btn pull-right"	ng-click="vm.produto.classProduto = null">
-                                <span class="mdi mdi-close-octagon"></span>&nbsp;
-                            </a>
-                        </span>
-                    </div>                  
-                </div>                
+                        Classificação
+                    </label>                      
+		            <div class="row">  
+						<div class="col-md-4">               
+					     <sc-select
+					       ng-model="vm.produto.classProduto"
+					       sc-options="classProduto as classProduto.id for classProduto in vm.obj.searchAsync(searchText, page, 'api/_search/class-produtos/select', 'id')"
+					       page-limit="vm.obj.asyncPageLimit"
+					       total-items="vm.obj.totalResults"
+					       placeholder="Código"
+					       loading-delay="200">
+					     </sc-select>
+					    </div> 
+						<div class="col-md-6">
+			             <sc-select
+						       ng-model="vm.produto.classProduto"
+						       sc-options="classProduto as classProduto.nmClassProduto for classProduto in vm.obj.searchAsync(searchText, page, 'api/_search/class-produtos/select', 'nmClassProduto')"
+						       page-limit="vm.obj.asyncPageLimit"
+						       total-items="vm.obj.totalResults"
+						       placeholder="Descrição"
+						       loading-delay="200">
+						 </sc-select>			     
+					    </div>					    
+					    <div class="col-md-1">			     
+						    <div class="col-md-1">
+						    	<button type="button" class="btn btn-default" ng-click="vm.produto.classProduto = null">
+						           <span class="glyphicon glyphicon-ban-circle"></span>
+						       	</button>
+						    </div>
+			            </div>
+				     </div>                                   
+                </div>                 
 		    </div>
         </div> 
         
@@ -342,26 +409,10 @@
         <div class="form-group">
             <div class="checkbox">                   
                 <label>
-                    <input type="checkbox" name="flMedProlonga" ng-model="vm.produto.flMedProlonga" />
-                    <span class="checkbox__label" translate="gpwebApp.produto.flMedProlonga">Uso Prolongado</span>
+                    <input type="checkbox" name="flUsoProlongado" ng-model="vm.produto.flUsoProlongado" />
+                    <span class="checkbox__label" translate="gpwebApp.produto.flUsoProlongado">Uso Prolongado</span>
                 </label>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label class="control-label" translate="gpwebApp.produto.dsClassTerapeutica" for="field_dsClassTerapeutica">Classe Terapêutica</label>
-                    <input type="text" class="form-control" name="dsClassTerapeutica" id="field_dsClassTerapeutica"
-                            ng-model="vm.produto.dsClassTerapeutica"
-                            ng-maxlength="30" />
-                    <div ng-show="editForm.dsClassTerapeutica.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.dsClassTerapeutica.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="30">
-                            Este campo não pode ter mais que 30 caracteres.
-                        </p>
-                    </div>
-                </div>    
-            </div>            
         </div>
         <div class="form-group">
             <div class="checkbox">                   

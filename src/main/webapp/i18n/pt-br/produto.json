@@ -21,12 +21,11 @@
             "cdProduto": "Código Produto",
             "cdNcm": "Código NCM",
             "cdBarras": "Código de Barras",       
-            "cdEan": "Código EAN",
+            "cdGtin": "Código GTIN",
             "cdAnp": "Código ANP",
             "dsAnp": "Descrição ANP",
             "cdContaContabil": "Código Conta Contábil",
-            "materiaPrima": "Matéria Prima",
-            "vlReal": "Valor Real",
+            "vlVenda": "Valor Venda",
             "vlEstoque": "Valor Estoque",
             "dsInformacoes": "Informações",            
             "grupo": "Grupo",
@@ -36,8 +35,7 @@
             "classProduto": "Classificação",            
             "flBalanca": "Balança",            
             "flSngpc": "SNGPC",
-            "flMedProlonga": "Uso Prolongado",
-            "dsClassTerapeutica": "Classe Terapêutica",
+            "flUsoProlongado": "Uso Prolongado",
             "flInativo": "Inativo"
         }
     }

@@ -4,7 +4,7 @@
 	<!-- sidebar: style can be found in sidebar.less -->	
 	<section class="sidebar">
 		<div class="sidebar-scroll">
-			<ul class="sidebar-menu">
+			<ul class="sidebar-menu no-padding-bottom">
 				<li>
 					<a data-toggle="offcanvas" role="button">
     					<i class="mdi mdi-window-close pull-right"></i>
@@ -12,8 +12,8 @@
 				</li>
 			</ul><!-- /.sidebar-menu -->
 			
-			<div class="sistech-logo-sidebar img-responsive"></div>
-
+            <img class="sistech-logo-sidebar img-responsive" src="../../../content/images/logo.svg" alt="Logomarca da Sistech">
+                
 			<!-- Sidebar Menu -->
 			<ul class="sidebar-menu" ng-switch="vm.isAuthenticated()">
 				<li ui-sref-active="active" class="active ripple">
@@ -106,6 +106,13 @@
 									<span data-toggle="offcanvas">
 										<a ui-sref="produto">
 											<span translate="global.menu.entities.produto">Produto</span>
+										</a>
+									</span>
+								</li>								
+								<li ui-sref-active="active">
+									<span data-toggle="offcanvas">
+										<a ui-sref="produto-filial">
+											<span translate="global.menu.entities.produtoFilial">Produto Filial</span>
 										</a>
 									</span>
 								</li>

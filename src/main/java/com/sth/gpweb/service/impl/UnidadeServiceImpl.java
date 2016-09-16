@@ -120,12 +120,51 @@ public class UnidadeServiceImpl implements UnidadeService{
     /**
      * Search for the nmUnidade
      *
-     *  @param query the nmFabricante
+     *  @param query the nmMarca
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
     public Page<Unidade> findByNmUnidadeStartingWithOrderByNmUnidadeAsc(String descricao, Pageable pageable){
 	    log.debug("Request to...", descricao);
 	    return unidadeRepository.findByNmUnidadeStartingWithOrderByNmUnidadeAsc(descricao, pageable);
+    }
+    
+    /**
+     * Search for the id
+     * Used on product page
+     *
+     *  @param query the nmUnidade
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public Page<Unidade> findByIdStartingWithOrderByIdAsc(String id, Pageable pageable){
+    	log.debug("Request to...", id);
+        return unidadeRepository.findByIdStartingWithOrderByIdAsc(id, pageable);
+    }
+    
+    /**
+     *  Get all the Unidades ordered by name.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public Page<Unidade> findAllOrderByNmUnidade(Pageable pageable) {
+        log.debug("Request to get all Unidades ordered by name");
+        Page<Unidade> result = unidadeRepository.findAllOrderByNmUnidade(pageable); 
+        return result;
+    }
+    
+    /**
+     *  Get all the Unidades ordered by id.
+     *  
+     *  @param pageable the pagination information
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public Page<Unidade> findAllOrderById(Pageable pageable) {
+        log.debug("Request to get all Unidades ordered by id");
+        Page<Unidade> result = unidadeRepository.findAllOrderById(pageable); 
+        return result;
     }
 }

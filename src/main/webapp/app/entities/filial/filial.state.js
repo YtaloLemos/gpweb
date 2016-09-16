@@ -72,8 +72,41 @@
                 }],
                 entity: ['$stateParams', 'Filial', function($stateParams, Filial) {
                     return Filial.get({id : $stateParams.id});
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'filial',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
                 }]
             }
+        })
+        .state('filial-detail.edit', {
+            parent: 'filial-detail',
+            url: '/detail/edit',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/filial/filial-dialog.html',
+                    controller: 'FilialDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Filial', function(Filial) {
+                            return Filial.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('^', {}, { reload: false });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         })
         .state('filial.new', {
             parent: 'filial',
@@ -94,10 +127,8 @@
                                 nmFilial: null,
                                 nmRazao: null,
                                 nnNumero: null,
-                                nnVersao: null,
-                                nnMdfVersao: null,
                                 cdCnpj: null,
-                                cdCgf: null,                       
+                                cdIe: null,                       
                                 cdTel: null,
                                 cdTel1: null,
                                 cdTel2: null,
@@ -106,10 +137,11 @@
                                 dsPisCofins: null,                                                                
                                 dsObs: null,
                                 dsSite: null,
-                                dtOperacao: null, 
+                                dtOperacao: null,
+                                dsEmail: null,
                                 flEnviaEmail: false,
                                 flTprec: false,
-                                flAtiva: false,                                
+                                flInativo: false,                                
                                 id: null
                             };
                         }

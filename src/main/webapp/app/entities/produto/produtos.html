@@ -82,15 +82,15 @@
                                     <div>
                                         <strong translate="gpwebApp.produto.marca">Marca</strong>
                                     </div>
-                                    <span>{{produto.marca.nmFabricante}}</span>
-                                    <span ng-hide="produto.marca.nmFabricante != null"> - </span>
+                                    <span>{{produto.marca.nmMarca}}</span>
+                                    <span ng-hide="produto.marca.nmMarca != null"> - </span>
                                 </div>
                                 <div class="col-xs-6 no-padding">
                                     <div>
-                                        <strong translate="gpwebApp.produto.vlReal">Valor Real</strong>
+                                        <strong translate="gpwebApp.produto.vlVenda">Valor Venda</strong>
                                     </div>
-                                    <span>{{produto.vlReal}}</span>
-                                    <span ng-hide="produto.vlReal != null"> - </span>                             
+                                    <span>{{produto.vlVenda}}</span>
+                                    <span ng-hide="produto.vlVenda != null"> - </span>                             
                                 </div>
                             </div>                               
                         </div>
@@ -153,7 +153,7 @@
                         <th jh-sort-by="blImagem" class="col-md-1 col-catalogo-imagem"><span translate="gpwebApp.produto.blImagem">Imagem</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th jh-sort-by="nmProduto"><span translate="gpwebApp.produto.nmProduto">Nome</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th jh-sort-by="marca.id" class="col-md-1 col-catalogo-marca"><span translate="gpwebApp.produto.marca">Marca</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
-                        <th jh-sort-by="vlReal"><span translate="gpwebApp.produto.vlReal">Valor Real</span> <span class="glyphicon glyphicon-sort"></span></th>
+                        <th jh-sort-by="vlVenda"><span translate="gpwebApp.produto.vlVenda">Valor Venda</span> <span class="glyphicon glyphicon-sort"></span></th>
                         <th jh-sort-by="flInativo" class="col-md-1 col-catalogo-inativo"><span translate="gpwebApp.produto.flInativo"> Inativo</span> <span class="glyphicon glyphicon-sort pull-right"></span></th>
                         <th class="col-md-1 col-catalogo-acoes text-center"><span translate="global.field.actions">Ações</span></th>
                     </tr>
@@ -170,7 +170,7 @@
                         </td>  
                         <td>{{produto.nmProduto}}</td>
                         <td>
-                            <a ui-sref="marca-detail({id:produto.marca.id})">{{produto.marca.nmFabricante}}</a>
+                            <a ui-sref="marca-detail({id:produto.marca.id})">{{produto.marca.nmMarca}}</a>
                         </td>                      
                         <td class="text-center">
                             <i class="mdi"
